@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-tagger-dev-224225-authRole",
+      "UnauthRoleArn": "arn:aws:iam::678183519085:role/amplify-tagger-dev-224225-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::678183519085:role/amplify-tagger-dev-224225-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-tagger-dev-224225-deployment",
+      "UnauthRoleName": "amplify-tagger-dev-224225-unauthRole",
+      "StackName": "amplify-tagger-dev-224225",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:678183519085:stack/amplify-tagger-dev-224225/ff0d0f50-e7cd-11eb-9f28-0616a1c70b31",
+      "AmplifyAppId": "d3t45y843pjpcn"
+    }
+  }
+}
