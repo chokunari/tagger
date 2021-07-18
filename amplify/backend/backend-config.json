@@ -1,1 +1,10 @@
-{}
+{
+  "auth": {
+    "taggerec362f21": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}
