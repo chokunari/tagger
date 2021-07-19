@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "taggerec362f21_identitypool_ec362f21",
+    "identityPoolName": "taggerd66ffed5_identitypool_d66ffed5",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "taggerec362f21",
-    "userPoolName": "taggerec362f21_userpool_ec362f21",
+    "resourceNameTruncated": "taggerd66ffed5",
+    "userPoolName": "taggerd66ffed5_userpool_d66ffed5",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -28,10 +28,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "taggerec362f21_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "taggerd66ffed5_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "ec362f21",
-    "resourceName": "taggerec362f21",
+    "sharedId": "d66ffed5",
+    "resourceName": "taggerd66ffed5",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -47,12 +47,12 @@
     },
     "useDefault": "defaultSocial",
     "hostedUI": true,
-    "hostedUIDomainName": "taggerec362f21-ec362f21",
+    "hostedUIDomainName": "taggerd66ffed5-d66ffed5",
     "authProvidersUserPool": [
         "Google"
     ],
     "hostedUIProviderMeta": "[{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"sub\"}}]",
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://master.d3t45y843pjpcn.amplifyapp.com/\",\"http://localhost:3000/\"],\"LogoutURLs\":[\"https://master.d3t45y843pjpcn.amplifyapp.com/\",\"http://localhost:3000/\"]}",
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://master.d3t45y843pjpcn.amplifyapp.com/\"],\"LogoutURLs\":[\"https://master.d3t45y843pjpcn.amplifyapp.com/\"]}",
     "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,

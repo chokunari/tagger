@@ -1,6 +1,6 @@
 {
   "auth": {
-    "taggerec362f21": {
+    "taggerd66ffed5": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],

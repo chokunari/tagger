@@ -43,3 +43,7 @@ $ yarn add aws-amplify @aws-amplify/ui-react
 #### ソーシャルIdPのOAUTHセットアップ
 [https://docs.amplify.aws/lib/auth/social/q/platform/js](https://docs.amplify.aws/lib/auth/social/q/platform/js)
 
+```
+$ amplify add auth
+$ amplify push
+```
