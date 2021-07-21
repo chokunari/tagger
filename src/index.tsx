@@ -3,29 +3,10 @@ import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import App from './App';
-/*
-import ButtonAppBar from './AppBar/ButtonAppBar';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import GoogleSignin from './AppBar/GoogleSignin';
-*/
-
-import Amplify from "aws-amplify";
-import awsExports from "./aws-exports";
-Amplify.configure(awsExports);
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
-{/*
-    <BrowserRouter>
-      <Switch>
-        <Route exact path='/' component={ButtonAppBar}/>
-        <Route path='/login' component={GoogleSignin}/>
-      </Switch>
-    </BrowserRouter>
-*/}
-
-
   </React.StrictMode>,
   document.getElementById('root')
 );
