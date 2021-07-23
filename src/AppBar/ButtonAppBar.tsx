@@ -85,7 +85,7 @@ export default function ButtonAppBar() {
             tagger
           </Typography>
           {/* ログインボタン　ここから */}
-          <p>User: {user ? JSON.stringify(user.attributes.username) : 'None'}</p>
+          <p>User: {user ? JSON.stringify(user) : 'None'}</p>
           {user ? (
             <Button color="inherit" onClick={() => Auth.signOut()}>サインアウト</Button>
           ) : (
