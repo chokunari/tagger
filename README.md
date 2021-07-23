@@ -24,6 +24,14 @@ $ yarn add react-google-button
 ```
 
 ### バックエンド
+#### Apmlify関連のドキュメント
+- チュートリアル
+[https://docs.amplify.aws/start/q/integration/js](https://docs.amplify.aws/start/q/integration/js)
+- OAUTH
+[https://docs.amplify.aws/lib/auth/social/q/platform/js](https://docs.amplify.aws/lib/auth/social/q/platform/js)
+- API
+[https://aws-amplify.github.io/amplify-js/api/](https://aws-amplify.github.io/amplify-js/api/)
+
 #### aws amplify 初期セットアップ
 - 下記の手順を実施。
 [https://docs.amplify.aws/start/q/integration/react](https://docs.amplify.aws/start/q/integration/react)
