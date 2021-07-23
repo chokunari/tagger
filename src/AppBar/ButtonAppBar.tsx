@@ -37,11 +37,21 @@ const theme = createTheme({
   },
 });
 
+//Admin Queries APIのgetUserで取得したjsonを型付け
+interface getUser{
+  username:string,
+  attributes:{
+    sub: string,
+    email_verified: boolean,
+    email: string
+  }
+}
+
 export default function ButtonAppBar() {
   const classes = useStyles();
   
   //ログイン機能　ここから
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<getUser | null>(null);
 
   useEffect(() => {
     Hub.listen('auth', ({ payload: { event, data } }) => {
@@ -85,7 +95,7 @@ export default function ButtonAppBar() {
             tagger
           </Typography>
           {/* ログインボタン　ここから */}
-          <p>User: {user ? JSON.stringify(user) : 'None'}</p>
+          <p>User: {user ? JSON.stringify(user.username) : 'None'}</p>
           {user ? (
             <Button color="inherit" onClick={() => Auth.signOut()}>サインアウト</Button>
           ) : (
