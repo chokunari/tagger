@@ -20,7 +20,7 @@ $ yarn add @material-ui/icons
 $ yarn add react-router-dom
 $ yarn add --dev @types/react-router-dom
 $ yarn add react-google-button
-
+$ @material-ui/data-grid
 ```
 
 ### バックエンド
