@@ -15,7 +15,7 @@ const rows = [
 
 export default function TagTable() {
   return (
-    <div style={{ height: 200, width: '100%' }}>
+    <div style={{ height: 300, width: '100%' }}>
       <DataGrid rows={rows} columns={columns} pageSize={5} checkboxSelection />
     </div>
   );
