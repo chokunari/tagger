@@ -4,10 +4,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-//import IconButton from '@material-ui/core/IconButton';
-//import MenuIcon from '@material-ui/icons/Menu';
-//import { Link } from 'react-router-dom';
-import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import { Auth, Hub } from 'aws-amplify';
 
 
@@ -25,17 +21,6 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   }),
 );
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      light: '#cfd8dc',
-      main: '#607d8b',
-      dark: '#263238',
-      contrastText: '#fff',
-    },
-  },
-});
 
 //Admin Queries APIのgetUserで取得したjsonを型付け
 interface getUser{
@@ -82,20 +67,14 @@ export default function ButtonAppBar() {
 
 
   return (
-    <ThemeProvider theme={theme}>
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          {/*
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
-           */}
           <Typography variant="h6" className={classes.title}>
             tagger
           </Typography>
           {/* ログインボタン　ここから */}
-          <p>User: {user ? JSON.stringify(user.username) : 'None'}</p>
+          <Button color="inherit"> {user ? JSON.stringify(user.username) : '未ログイン'}</Button>
           {user ? (
             <Button color="inherit" onClick={() => Auth.signOut()}>サインアウト</Button>
           ) : (
@@ -105,6 +84,5 @@ export default function ButtonAppBar() {
         </Toolbar>
       </AppBar>
     </div>
-    </ThemeProvider>
   );
 }
