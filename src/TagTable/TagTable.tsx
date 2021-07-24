@@ -3,7 +3,7 @@ import { DataGrid, GridColDef } from '@material-ui/data-grid';
 
 const columns: GridColDef[] = [
   { field: 'id', headerName: 'No.', width: 100 },
-  { field: 'tagName', headerName: 'タグ名', width: 160 },
+  { field: 'tagName', headerName: 'タグ名', width: 300 },
   { field: 'tagDescription', headerName: '説明', width: 200 },
 ];
 

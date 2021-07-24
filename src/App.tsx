@@ -4,7 +4,8 @@ import awsExports from './aws-exports';
 import Grid from '@material-ui/core/Grid';
 import ButtonAppBar from './AppBar/ButtonAppBar';
 import UploadButton from './Upload/UploadButton'
-import SearchBar from './SearchBar/SearchBar'
+import AddTagButton from './AddTag/AddTagButton'
+//import SearchBar from './SearchBar/SearchBar'
 import TagTable from './TagTable/TagTable'
 import { createTheme, ThemeProvider } from '@material-ui/core';
 
@@ -38,12 +39,17 @@ function App() {
             {/*<Route path='/login' component={Login}/>*/}
           </Switch>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={3}>
             <UploadButton/>
         </Grid>
+        <Grid item xs={9}>
+            <AddTagButton/>
+        </Grid>
+        {/*
         <Grid item xs={3}>
             <SearchBar/>
         </Grid>
+         */}
         <Grid item xs={12}>
             <TagTable/>
         </Grid>
