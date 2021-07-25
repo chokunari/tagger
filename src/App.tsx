@@ -1,13 +1,15 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Amplify from 'aws-amplify';
 import awsExports from './aws-exports';
+import { createTheme, ThemeProvider } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import ButtonAppBar from './AppBar/ButtonAppBar';
 import UploadButton from './Upload/UploadButton'
 import AddTagButton from './AddTag/AddTagButton'
 //import SearchBar from './SearchBar/SearchBar'
 import TagTable from './TagTable/TagTable'
-import { createTheme, ThemeProvider } from '@material-ui/core';
+import ImageLists from './ImageLists/ImageLists'
+
 
 Amplify.configure(awsExports);
 
@@ -52,6 +54,9 @@ function App() {
          */}
         <Grid item xs={12}>
             <TagTable/>
+        </Grid>
+        <Grid item xs={12}>
+            <ImageLists/>
         </Grid>
       </Grid>
     </BrowserRouter>
