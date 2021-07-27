@@ -44,3 +44,6 @@ amplifytools.xcconfig
 
 # テスト用の画像
 /src/SampleImages
+
+# DynamoDBのスキーマ
+DynamoDBDesign.csv
