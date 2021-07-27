@@ -3,14 +3,14 @@ import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
 import ImageListItemBar from '@material-ui/core/ImageListItemBar';
-//テスト用　ここから
+/*//テスト用　ここから
 import image1 from '../SampleImages/image1.PNG'
 import image2 from '../SampleImages/image2.PNG'
 import image3 from '../SampleImages/image3.PNG'
 import image4 from '../SampleImages/image4.PNG'
 import image5 from '../SampleImages/image5.PNG'
 import image6 from '../SampleImages/image6.PNG'
-//テスト用　ここまで
+//テスト用　ここまで*/
 import { Modal } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 
@@ -75,27 +75,28 @@ export default function SingleLineImageList(/*props:itemdata*/) {
   //const itemData:itemdata[] = [props];
   const itemData:itemdata[] = [
     {
-      img: image1,
+      //img: image1,
+      img: "https://tagger-contents.s3.ap-northeast-1.amazonaws.com/test/image1.PNG",
       title: '画像１'
     },
     {
-      img: image2,
+      img: "https://tagger-contents.s3.ap-northeast-1.amazonaws.com/test/image2.PNG",
       title: '画像２'
     },
     {
-      img: image3,
+      img: "https://tagger-contents.s3.ap-northeast-1.amazonaws.com/test/image3.PNG",
       title: '画像３'
     },
     {
-      img: image4,
+      img: "https://tagger-contents.s3.ap-northeast-1.amazonaws.com/test/image4.PNG",
       title: '画像４'
     },
     {
-      img: image5,
+      img: "https://tagger-contents.s3.ap-northeast-1.amazonaws.com/test/image5.PNG",
       title: '画像５'
     },
     {
-      img: image6,
+      img: "https://tagger-contents.s3.ap-northeast-1.amazonaws.com/test/image6.PNG",
       title: '画像６'
     },
   ];
