@@ -85,6 +85,7 @@ export type Imagetag = {
 };
 
 export type UpdateImagetagInput = {
+  id: string,
   sub?: string | null,
   tagname?: string | null,
   imgurl?: string | null,
@@ -95,6 +96,7 @@ export type DeleteImagetagInput = {
 };
 
 export type ModelImagetagFilterInput = {
+  id?: ModelIDInput | null,
   sub?: ModelIDInput | null,
   tagname?: ModelStringInput | null,
   imgurl?: ModelStringInput | null,

@@ -1,18 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
 import ImageListItemBar from '@material-ui/core/ImageListItemBar';
-/*//テスト用　ここから
-import image1 from '../SampleImages/image1.PNG'
-import image2 from '../SampleImages/image2.PNG'
-import image3 from '../SampleImages/image3.PNG'
-import image4 from '../SampleImages/image4.PNG'
-import image5 from '../SampleImages/image5.PNG'
-import image6 from '../SampleImages/image6.PNG'
-//テスト用　ここまで*/
 import { Modal } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
+import Amplify, { API, graphqlOperation } from 'aws-amplify'
+import { getImagetag } from '../graphql/queries';
+import awsExports from "../aws-exports";
+
+Amplify.configure(awsExports);
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -65,43 +62,50 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 interface itemdata{
-  img: string,
-  title: string,
+  "data": {
+    "getImagetag": {
+      "id":string,
+      "sub":string,
+      "tagname":string
+      "imgurl": string,
+    }
+  }
+
+  //title: string,
 }
 
 export default function SingleLineImageList(/*props:itemdata*/) {
   const classes = useStyles();
 
-  //const itemData:itemdata[] = [props];
-  const itemData:itemdata[] = [
+  const [itemData, setItemData] = useState<itemdata[] | any[]>([
     {
-      //img: image1,
-      img: "https://tagger-contents.s3.ap-northeast-1.amazonaws.com/test/image1.PNG",
-      title: '画像１'
-    },
-    {
-      img: "https://tagger-contents.s3.ap-northeast-1.amazonaws.com/test/image2.PNG",
-      title: '画像２'
-    },
-    {
-      img: "https://tagger-contents.s3.ap-northeast-1.amazonaws.com/test/image3.PNG",
-      title: '画像３'
-    },
-    {
-      img: "https://tagger-contents.s3.ap-northeast-1.amazonaws.com/test/image4.PNG",
-      title: '画像４'
-    },
-    {
-      img: "https://tagger-contents.s3.ap-northeast-1.amazonaws.com/test/image5.PNG",
-      title: '画像５'
-    },
-    {
-      img: "https://tagger-contents.s3.ap-northeast-1.amazonaws.com/test/image6.PNG",
-      title: '画像６'
-    },
-  ];
+      "data": {
+        "getImagetag": {
+          "id":"1",
+          "sub":"default",
+          "tagname":"default",
+          "imgurl": "default",
+        }
+      }
+    }
+  ]);
 
   const [open, setOpen] = useState(false);
+  const [modalImage, setModalImage] = useState<itemdata>(itemData[0])
+
+  useEffect(()=>{
+    dataFetch();
+  });
+
+  const dataFetch = async () => {
+    try{
+      const item = await API.graphql(graphqlOperation(getImagetag, {id: "1"}));
+      setItemData([item]);
+    }catch(err){
+      console.log('error fetching image:', err)
+    }
+  }
+
 
   const handleOpen = (item:itemdata) => {
     setOpen(true);
@@ -112,18 +116,18 @@ export default function SingleLineImageList(/*props:itemdata*/) {
     setOpen(false);
   };
 
-  const [modalImage, setModalImage] = useState<itemdata>(itemData[0])
-
   const body = (
     <div className={classes.paper}>
       <form noValidate autoComplete="off">
       <div className={classes.modalimage}>
+        
         <img 
-          src={modalImage.img}
-          alt={modalImage.title}
+          src={modalImage.data.getImagetag.imgurl}
+          alt="test"
           width="400"
           height="400"
         />
+         
       </div>
         <div className={classes.submitarea}>
           <Button type='submit' className={classes.submitbutton}>追加</Button>
@@ -135,11 +139,11 @@ export default function SingleLineImageList(/*props:itemdata*/) {
   return (
     <div className={classes.root}>
       <ImageList className={classes.imageList} rowHeight={500} cols={2.5}>
-        {itemData.map((item) => (
-            <ImageListItem key={item.img} onClick={() => { handleOpen(item) }}>
-              <img src={item.img} alt={item.title} />
+        {itemData.map((item: itemdata) => (
+            <ImageListItem key={item.data.getImagetag.imgurl} onClick={() => { handleOpen(item) }}>
+              <img src={item.data.getImagetag.imgurl} alt="test" />
               <ImageListItemBar
-                title={item.title}
+                title="test"
                 classes={{
                   root: classes.titleBar,
                   title: classes.title,

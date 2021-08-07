@@ -3,14 +3,12 @@
 // this is an auto generated file. This will be overwritten
 
 export const getImagetag = /* GraphQL */ `
-  query GetImagetag($id: ID!) {
+  query MyQuery($id: ID!) {
     getImagetag(id: $id) {
       id
       sub
       tagname
       imgurl
-      createdAt
-      updatedAt
     }
   }
 `;
