@@ -55,3 +55,11 @@ $ yarn add aws-amplify @aws-amplify/ui-react
 $ amplify add auth
 $ amplify push
 ```
+#### 環境を削除する
+基本的にCLIから削除すること。中途半端にWEBコンソールで削除すると後が面倒。
+```
+# サービスの削除
+$ amplify remove
+# アプリの削除
+$ amplify delete
+```

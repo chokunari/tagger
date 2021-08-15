@@ -1,6 +1,0 @@
-type Imagetag @model {
-  id: ID!
-  sub: ID!
-  tagname: String!
-  imgurl: String!
-}

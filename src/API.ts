@@ -10,7 +10,6 @@ export type CreateImagetagInput = {
 };
 
 export type ModelImagetagConditionInput = {
-  sub?: ModelIDInput | null,
   tagname?: ModelStringInput | null,
   imgurl?: ModelStringInput | null,
   and?: Array< ModelImagetagConditionInput | null > | null,
@@ -18,7 +17,7 @@ export type ModelImagetagConditionInput = {
   not?: ModelImagetagConditionInput | null,
 };
 
-export type ModelIDInput = {
+export type ModelStringInput = {
   ne?: string | null,
   eq?: string | null,
   le?: string | null,
@@ -58,7 +57,49 @@ export type ModelSizeInput = {
   between?: Array< number | null > | null,
 };
 
-export type ModelStringInput = {
+export type Imagetag = {
+  __typename: "Imagetag",
+  id: string,
+  sub: string,
+  tagname: string,
+  imgurl: string,
+  createdAt: string,
+  updatedAt: string,
+};
+
+export type UpdateImagetagInput = {
+  id: string,
+  sub: string,
+  tagname?: string | null,
+  imgurl?: string | null,
+};
+
+export type DeleteImagetagInput = {
+  id: string,
+  sub: string,
+};
+
+export type ModelIDKeyConditionInput = {
+  eq?: string | null,
+  le?: string | null,
+  lt?: string | null,
+  ge?: string | null,
+  gt?: string | null,
+  between?: Array< string | null > | null,
+  beginsWith?: string | null,
+};
+
+export type ModelImagetagFilterInput = {
+  id?: ModelIDInput | null,
+  sub?: ModelIDInput | null,
+  tagname?: ModelStringInput | null,
+  imgurl?: ModelStringInput | null,
+  and?: Array< ModelImagetagFilterInput | null > | null,
+  or?: Array< ModelImagetagFilterInput | null > | null,
+  not?: ModelImagetagFilterInput | null,
+};
+
+export type ModelIDInput = {
   ne?: string | null,
   eq?: string | null,
   le?: string | null,
@@ -74,41 +115,26 @@ export type ModelStringInput = {
   size?: ModelSizeInput | null,
 };
 
-export type Imagetag = {
-  __typename: "Imagetag",
-  id: string,
-  sub: string,
-  tagname: string,
-  imgurl: string,
-  createdAt: string,
-  updatedAt: string,
-};
+export enum ModelSortDirection {
+  ASC = "ASC",
+  DESC = "DESC",
+}
 
-export type UpdateImagetagInput = {
-  id: string,
-  sub?: string | null,
-  tagname?: string | null,
-  imgurl?: string | null,
-};
-
-export type DeleteImagetagInput = {
-  id: string,
-};
-
-export type ModelImagetagFilterInput = {
-  id?: ModelIDInput | null,
-  sub?: ModelIDInput | null,
-  tagname?: ModelStringInput | null,
-  imgurl?: ModelStringInput | null,
-  and?: Array< ModelImagetagFilterInput | null > | null,
-  or?: Array< ModelImagetagFilterInput | null > | null,
-  not?: ModelImagetagFilterInput | null,
-};
 
 export type ModelImagetagConnection = {
   __typename: "ModelImagetagConnection",
   items?:  Array<Imagetag | null > | null,
   nextToken?: string | null,
+};
+
+export type ModelStringKeyConditionInput = {
+  eq?: string | null,
+  le?: string | null,
+  lt?: string | null,
+  ge?: string | null,
+  gt?: string | null,
+  between?: Array< string | null > | null,
+  beginsWith?: string | null,
 };
 
 export type CreateImagetagMutationVariables = {
@@ -164,6 +190,7 @@ export type DeleteImagetagMutation = {
 
 export type GetImagetagQueryVariables = {
   id: string,
+  sub: string,
 };
 
 export type GetImagetagQuery = {
@@ -179,13 +206,66 @@ export type GetImagetagQuery = {
 };
 
 export type ListImagetagsQueryVariables = {
+  id?: string | null,
+  sub?: ModelIDKeyConditionInput | null,
+  filter?: ModelImagetagFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+  sortDirection?: ModelSortDirection | null,
+};
+
+export type ListImagetagsQuery = {
+  listImagetags?:  {
+    __typename: "ModelImagetagConnection",
+    items?:  Array< {
+      __typename: "Imagetag",
+      id: string,
+      sub: string,
+      tagname: string,
+      imgurl: string,
+      createdAt: string,
+      updatedAt: string,
+    } | null > | null,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type ImagetagByIdTagnameIndexQueryVariables = {
+  id?: string | null,
+  tagname?: ModelStringKeyConditionInput | null,
+  sortDirection?: ModelSortDirection | null,
   filter?: ModelImagetagFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
 };
 
-export type ListImagetagsQuery = {
-  listImagetags?:  {
+export type ImagetagByIdTagnameIndexQuery = {
+  ImagetagByIdTagnameIndex?:  {
+    __typename: "ModelImagetagConnection",
+    items?:  Array< {
+      __typename: "Imagetag",
+      id: string,
+      sub: string,
+      tagname: string,
+      imgurl: string,
+      createdAt: string,
+      updatedAt: string,
+    } | null > | null,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type ImagetagByIdImgurlIndexQueryVariables = {
+  id?: string | null,
+  imgurl?: ModelStringKeyConditionInput | null,
+  sortDirection?: ModelSortDirection | null,
+  filter?: ModelImagetagFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ImagetagByIdImgurlIndexQuery = {
+  ImagetagByIdImgurlIndex?:  {
     __typename: "ModelImagetagConnection",
     items?:  Array< {
       __typename: "Imagetag",

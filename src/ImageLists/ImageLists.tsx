@@ -99,7 +99,7 @@ export default function SingleLineImageList(/*props:itemdata*/) {
 
   const dataFetch = async () => {
     try{
-      const item = await API.graphql(graphqlOperation(getImagetag, {id: "1"}));
+      const item = await API.graphql(graphqlOperation(getImagetag, {sub: "15a5bce3-8fd9-48d0-a2f7-f54c5000bf21"}));
       setItemData([item]);
     }catch(err){
       console.log('error fetching image:', err)

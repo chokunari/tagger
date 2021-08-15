@@ -1,0 +1,19 @@
+type Imagetag 
+  @model 
+  @key(fields: ["id", "sub"])
+  @key(
+    name: "id-tagname-index", 
+    fields: ["id", "tagname"], 
+    queryField: "ImagetagByIdTagnameIndex"
+    )
+  @key(
+    name: "id-imgurl-index", 
+    fields: ["id", "imgurl"], 
+    queryField: "ImagetagByIdImgurlIndex"
+    )
+  {
+  id: ID!
+  sub: ID!
+  tagname: String!
+  imgurl: String!
+}
